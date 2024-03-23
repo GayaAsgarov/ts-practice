@@ -1,0 +1,5 @@
+# Ignore Node.js dependencies
+node_modules/
+
+# Ignore npm's log files
+npm-debug.log
