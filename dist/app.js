@@ -1,25 +1,56 @@
 "use strict";
-var _a;
-const e1 = {
-    name: 'Max',
-    privileges: ['create-server'],
-    startDate: new Date()
-};
-function add(a, b) {
-    if (typeof a === 'string' || typeof b === 'string') {
-        return a.toString() + b.toString();
-    }
-    return a + b;
+function merge(objA, objB) {
+    return Object.assign(objA, objB);
 }
-const result = add('Max', 'Schwarz');
-result.split(' ');
-const fetchedUserData = {
-    id: 'u1',
-    name: 'Max',
-    job: { title: 'CEO', description: 'My own company' }
-};
-console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
-const userInput = undefined;
-const storedData = userInput !== null && userInput !== void 0 ? userInput : 'DEFAULT';
-console.log(storedData);
+const mergedObj = merge({ name: 'Max', hobbies: ['Sports'] }, { age: 30 });
+const mergedObj2 = merge({ name: 'Max' }, { age: 30 });
+console.log(mergedObj);
+;
+function countAndDescribe(element) {
+    let descriptionText = 'Got no value';
+    if (element.length === 1) {
+        descriptionText = 'Got 1 element.';
+    }
+    else if (element.length > 1) {
+        descriptionText = 'Got ' + element.length + ' elements.';
+    }
+    return [element, descriptionText];
+}
+console.log(countAndDescribe(['Sports', 'Cooking']));
+function extractAndConvert(obj, key) {
+    return 'Value: ' + obj[key];
+}
+console.log(extractAndConvert({ name: 'Max' }, 'name'));
+class DataStorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        if (this.data.indexOf(item) === -1) {
+            return;
+        }
+        this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const textStorage = new DataStorage();
+textStorage.addItem('Max');
+textStorage.addItem('Manu');
+textStorage.removeItem('Max');
+console.log(textStorage.getItems());
+const numberStorage = new DataStorage();
+;
+function createCourseGoal(title, description, date) {
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal;
+}
+const names = ['Max', 'Anna'];
 //# sourceMappingURL=app.js.map
